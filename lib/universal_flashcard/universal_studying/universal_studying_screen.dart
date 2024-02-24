@@ -1,11 +1,26 @@
 import 'package:brain_up/universal_flashcard/universal_studying/universal_studying_flipcard.dart';
 import 'package:flutter/material.dart';
-import 'package:swipe_cards/swipe_cards.dart';
+import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 
 import '../common_widget/deck_title.dart';
 
 class UniversalStudyingScreen extends StatelessWidget {
-  const UniversalStudyingScreen({super.key});
+  UniversalStudyingScreen({super.key});
+
+  final List<UniversalStudyingFlipCardWidget> _cards = [
+    UniversalStudyingFlipCardWidget(
+      question: "d",
+      answer: "g",
+    ),
+    UniversalStudyingFlipCardWidget(
+      question: "dd",
+      answer: "gg",
+    ),
+    UniversalStudyingFlipCardWidget(
+      question: "ddd",
+      answer: "ggg",
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +49,23 @@ class UniversalStudyingScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25)
                 ),
                 child: Center(
-                  child: UniversalStudyingFlipCardWidget(
-                    question: "dd",
-                    answer: "gg",
+                  child: CardSwiper(
+                    cardsCount: _cards.length,
+                    cardBuilder: (bc, i, x, y){
+                      return _cards[i];
+                    },
+                    maxAngle: 0,
+                    numberOfCardsDisplayed: _cards.length >= 3 ? 3 : _cards.length,
+                    allowedSwipeDirection: const AllowedSwipeDirection.only(
+                      up: false,
+                      down: false,
+                      right: true,
+                      left: true
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 55,
+                      vertical: 80
+                    ),
                   ),
                 ),
               ),
@@ -67,8 +96,8 @@ class UniversalStudyingScreen extends StatelessWidget {
                       Text(
                         "홈",
                         style: TextStyle(
-                            fontSize: 10,
-                            height: 1.6
+                          fontSize: 10,
+                          height: 1.6
                         ),
                       )
                     ],

@@ -81,20 +81,20 @@ class UniversalStudyingScreen extends StatelessWidget {
               flex: 1,
               child: InkWell(
                 onTapUp: (detail) {},
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
                       vertical: 5,
                       horizontal: 15
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.backspace_outlined,
-                        size: 24,
+                      Image.asset(
+                        "assets/arrow_left_square_contained.png",
+                        width: 24,
                       ),
-                      Text(
-                        "홈",
+                      const Text(
+                        "이전으로",
                         style: TextStyle(
                           fontSize: 10,
                           height: 1.6
@@ -109,20 +109,20 @@ class UniversalStudyingScreen extends StatelessWidget {
               flex: 1,
               child: InkWell(
                 onTapUp: (detail) {},
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
                       vertical: 5,
                       horizontal: 15
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.star,
-                        size: 24,
+                      Image.asset(
+                        "assets/logout.png",
+                        width: 24,
                       ),
-                      Text(
-                        "홈",
+                      const Text(
+                        "학습종료",
                         style: TextStyle(
                             fontSize: 10,
                             height: 1.6

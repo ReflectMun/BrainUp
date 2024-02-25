@@ -118,7 +118,7 @@ class UniversalStudyingScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        "assets/logout.png",
+                        "assets/logout_icon.png",
                         width: 24,
                       ),
                       const Text(

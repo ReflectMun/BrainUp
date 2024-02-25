@@ -1,12 +1,14 @@
 import 'dart:ffi';
 
+import 'package:brain_up/universal_flashcard/universal_test/universal_test_answer_widget.dart';
+import 'package:brain_up/universal_flashcard/universal_test/universal_test_question_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 import '../common_widget/deck_title.dart';
 
 class UniversalTestScreen extends StatelessWidget {
-  UniversalTestScreen({super.key});
+  const UniversalTestScreen({super.key});
 
   final String question = "백제, 고구려, 신라 삼국을 통일하게 만든 주인공은?";
   final String answer = "문무왕";
@@ -51,6 +53,7 @@ class UniversalTestScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      // 맞힌 개수 영역 시작
                       Container(
                         width: 200,
                         height: 35,
@@ -73,10 +76,15 @@ class UniversalTestScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // 맞힌 개수 영역 끝
+
                       const SizedBox(height: 30,),
+
+                      // 정답률, 소요시간 영역 시작
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          // 정답률 시작
                           Text(
                             "정답률 : ${(current/total * 100).toInt()}%",
                             style: const TextStyle(
@@ -85,6 +93,9 @@ class UniversalTestScreen extends StatelessWidget {
                               letterSpacing: 0.05
                             ),
                           ),
+                          // 정답률 시작
+
+                          // 소요시간 시작
                           Text(
                             "소요 시간 : $timer",
                             style: const TextStyle(
@@ -93,87 +104,70 @@ class UniversalTestScreen extends StatelessWidget {
                               letterSpacing: 0.05
                             ),
                           ),
+                          // 소요시간 시작
                         ],
                       ),
+                      // 정답률, 소요시간 영역 끝
+
                       const SizedBox(height: 10,),
-                      Container(
-                        width: 320,
-                        height: 137.97,
-                        padding: const EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFD04848),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Center(
-                          child: AutoSizeText(
-                            question,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 50,
-                              fontWeight: FontWeight.w400
-                            ),
-                            minFontSize: 16,
-                            maxFontSize: 50,
-                            maxLines: 10,
-                            overflowReplacement: const Text(
-                              "문제가 너무 길어요!",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 32,
-                                fontWeight: FontWeight.w400
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+
+                      // 문제 박스 영역 시작
+                      UniversalTestQuestionWidget(question: question),
+                      // 문제 박스 영역 끝
+
                       const SizedBox(height: 20,),
-                      Container(
-                        width: 320,
-                        height: 137.97,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(
-                            color: const Color(0xFFD04848),
-                            width: 4
-                          ),
-                        ),
-                        child: Center(
-                          child: AutoSizeText(
-                            answer,
-                            style: const TextStyle(
-                              color: Color(0xFFD04848),
-                              fontSize: 50,
-                              fontWeight: FontWeight.w400
-                            ),
-                            minFontSize: 16,
-                            maxFontSize: 50,
-                            maxLines: 10,
-                            overflowReplacement: const Text(
-                              "정답이 너무 길어요!",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.w400
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+
+                      // 정답 박스 영역 시작
+                      UniversalTestAnswerWidget(answer: answer),
+                      // 정답 박스 영역 끝
+
                       const SizedBox(height: 20,),
+
+                      // 틀림, 정답 버튼 영역
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Image.asset(
-                            "assets/incorrect_icon.png",
-                            width: 40,
+                          GestureDetector(
+                            onTapUp: (detail) {
+                              print("틀림");
+                            },
+                            child: Container(
+                              width: 140,
+                              height: 68,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15)
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  "assets/incorrect_icon.png",
+                                  width: 40,
+                                ),
+                              ),
+                            ),
                           ),
-                          Image.asset(
-                            "assets/correct_icon.png",
-                            width: 40,
+                          GestureDetector(
+                            onTapUp: (detail){
+                              print("정답");
+                            },
+                            child: Container(
+                              width: 140,
+                              height: 68,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15)
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  "assets/correct_icon.png",
+                                  width: 40,
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),
+                      // 틀림, 정답 버튼 영역 끝
                     ],
                   ),
                 ),
@@ -228,7 +222,7 @@ class UniversalTestScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        "assets/logout.png",
+                        "assets/logout_icon.png",
                         width: 24,
                       ),
                       const Text(

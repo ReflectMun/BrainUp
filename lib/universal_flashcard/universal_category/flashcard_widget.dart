@@ -48,11 +48,11 @@ class _FlashcardWidgetState extends State<FlashcardWidget> {
               padding: const EdgeInsets.all(10),
               child: Row(
                 children: [
-                  Flexible(
+                  Expanded(
                     flex: 13,
                     child: Text(widget.question),
                   ),
-                  Flexible(
+                  Expanded(
                     flex: 2,
                     child: IconButton(
                       onPressed: _clickBookmark,

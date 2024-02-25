@@ -3,6 +3,7 @@ import 'package:brain_up/universal_flashcard/universal_deck/universal_deck_scree
 import 'package:brain_up/universal_flashcard/universal_flashcard_add_function/universal_flashcard_add_screen.dart';
 import 'package:brain_up/universal_flashcard/universal_studying/universal_studying_screen.dart';
 import 'package:brain_up/universal_flashcard/universal_test/universal_test_screen.dart';
+import 'package:brain_up/universal_flashcard/universal_test_result/universal_result_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: UniversalTestScreen(),
+      home: UniversalResultScreen(),
     );
   }
 }

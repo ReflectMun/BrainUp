@@ -2,6 +2,7 @@ import 'package:brain_up/universal_flashcard/universal_category/universal_catego
 import 'package:brain_up/universal_flashcard/universal_deck/universal_deck_screen.dart';
 import 'package:brain_up/universal_flashcard/universal_flashcard_add_function/universal_flashcard_add_screen.dart';
 import 'package:brain_up/universal_flashcard/universal_studying/universal_studying_screen.dart';
+import 'package:brain_up/universal_flashcard/universal_test/universal_test_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

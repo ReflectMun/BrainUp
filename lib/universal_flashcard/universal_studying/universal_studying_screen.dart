@@ -90,7 +90,7 @@ class UniversalStudyingScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
-                        Icons.home_filled,
+                        Icons.backspace_outlined,
                         size: 24,
                       ),
                       Text(

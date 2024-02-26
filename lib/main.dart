@@ -16,7 +16,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: UniversalResultScreen(),
+      home: AddUniversalFlashcardScreen(
+        categoryName: "DD",
+      ),
     );
   }
 }
